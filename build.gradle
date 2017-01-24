@@ -18,8 +18,16 @@ allprojects {
   }
 }
 
+task runTheTests {
+  mustRunAfter 'startBackend'
+  dependsOn ':app:connectedCheck'
+}
+
+task startBackend {
+  dependsOn ':backend:appengineRun'
+}
 
 task runFullTest {
   finalizedBy ':backend:appengineStop'
-  dependsOn = [':backend:appengineRun', ':app:check', ':app:connectedCheck']
+  dependsOn = ['runTheTests', 'startBackend']
 }

@@ -12,7 +12,6 @@
  */
 package com.udacity.gradle.builditbigger.test;
 
-import android.os.AsyncTask;
 import android.support.test.filters.LargeTest;
 import android.support.test.runner.AndroidJUnit4;
 import com.udacity.gradle.builditbigger.JokeAsyncTask;
@@ -35,7 +34,7 @@ public class AsynctaskTest {
 
   @Test
   public void testAsyncTask() throws InterruptedException {
-    final AsyncTask task = new JokeAsyncTask() {
+    new JokeAsyncTask() {
       @Override
       protected void onPostExecute(String s) {
         mResult = s;
